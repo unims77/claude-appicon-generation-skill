@@ -35,6 +35,10 @@ def generate_platform_sizes(
             out = output_dir / f"icon_{size}.png"
             resize_png(source_png, out, size)
             results.append(out)
+        for name, size in spec["tile_sizes"].items():
+            out = output_dir / f"{name}.png"
+            resize_png(source_png, out, size)
+            results.append(out)
 
     elif platform == "macos":
         iconset_dir = output_dir / spec["output_dir"]

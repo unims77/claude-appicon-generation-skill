@@ -10,7 +10,7 @@ from src.resizer import generate_platform_sizes
 
 
 def package_windows(source_png: str | Path, output_dir: str | Path) -> Path:
-    """Generate a Windows ICO file (multi-size embedding)."""
+    """Generate a Windows ICO file + UWP tile PNGs."""
     source_png = Path(source_png)
     output_dir = Path(output_dir)
     win_dir = output_dir / "windows"
@@ -20,6 +20,7 @@ def package_windows(source_png: str | Path, output_dir: str | Path) -> Path:
     ico_path = win_dir / spec["output_file"]
 
     with Image.open(source_png) as img:
+        # ICO (multi-size)
         icon_images = []
         for size in spec["sizes"]:
             resized = img.resize((size, size), Image.LANCZOS)
@@ -31,7 +32,14 @@ def package_windows(source_png: str | Path, output_dir: str | Path) -> Path:
             sizes=[(s, s) for s in spec["sizes"]],
             append_images=icon_images[1:],
         )
-    return ico_path
+
+        # UWP tile PNGs
+        for name, size in spec["tile_sizes"].items():
+            tile_path = win_dir / f"{name}.png"
+            resized = img.resize((size, size), Image.LANCZOS)
+            resized.save(str(tile_path), "PNG")
+
+    return win_dir
 
 
 def package_macos(source_png: str | Path, output_dir: str | Path) -> Path:

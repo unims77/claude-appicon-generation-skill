@@ -104,6 +104,7 @@ icon_1024.png (RGBA, 투명 둥근 모서리)
   ↓ resizer.py — Pillow LANCZOS 리사이즈
   ↓ packager.py — 플랫폼별 패키징
   ├── windows/app.ico          (16~256px 멀티사이즈 ICO)
+  │         + UWP 타일           (Square44, 71, 150, 310 + StoreLogo)
   ├── macos/icon.iconset/      (16~1024px 레티나 페어)
   ├── android/mipmap-*/        (48~192px + 512px 플레이스토어)
   ├── ios/AppIcon.appiconset/  (20~1024px + Contents.json)

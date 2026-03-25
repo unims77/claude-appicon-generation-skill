@@ -104,6 +104,7 @@ icon_1024.png (RGBA, transparent rounded corners)
   ↓ resizer.py — Pillow LANCZOS resize
   ↓ packager.py — Per-platform packaging
   ├── windows/app.ico          (16~256px multi-size ICO)
+  │         + UWP tiles         (Square44, 71, 150, 310 + StoreLogo)
   ├── macos/icon.iconset/      (16~1024px retina pairs)
   ├── android/mipmap-*/        (48~192px + 512px Play Store)
   ├── ios/AppIcon.appiconset/  (20~1024px + Contents.json)

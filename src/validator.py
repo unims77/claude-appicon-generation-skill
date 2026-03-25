@@ -92,9 +92,16 @@ def validate_package(output_dir: str | Path) -> dict:
     results["source_svg"] = validate_svg(source_svg)
     results["source_png"] = validate_png(source_png, 1024)
 
-    # Windows ICO
+    # Windows ICO + UWP tiles
+    win_errors = []
     ico_path = output_dir / "windows" / "app.ico"
-    results["windows"] = {"valid": ico_path.exists(), "errors": [] if ico_path.exists() else ["app.ico missing"]}
+    if not ico_path.exists():
+        win_errors.append("app.ico missing")
+    for name in ICON_SIZES["windows"]["tile_sizes"]:
+        tile_path = output_dir / "windows" / f"{name}.png"
+        if not tile_path.exists():
+            win_errors.append(f"{name}.png missing")
+    results["windows"] = {"valid": len(win_errors) == 0, "errors": win_errors}
 
     # macOS iconset
     iconset_dir = output_dir / "macos" / "icon.iconset"

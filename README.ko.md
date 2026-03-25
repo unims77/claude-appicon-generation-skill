@@ -8,6 +8,8 @@ SVG 코드로 프로덕션 레디 앱 아이콘을 생성하고, **모든 주요
 SVG 코드 → 1024x1024 PNG → Windows / macOS / Android / iOS / Web
 ```
 
+![하이퍼 모드 프리뷰](screen_capture/preview.png)
+
 ## 주요 기능
 
 - **AI 기반 디자인** — Claude Code가 SVG XML을 직접 작성, 디자인 툴 불필요

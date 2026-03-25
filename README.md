@@ -8,6 +8,8 @@ Generate production-ready app icons from SVG code and package them for **all maj
 SVG Code → 1024x1024 PNG → Windows / macOS / Android / iOS / Web
 ```
 
+![Hyper Mode Preview](screen_capture/preview.png)
+
 ## Features
 
 - **AI-Driven Design** — Claude Code writes SVG XML directly, no design tools needed

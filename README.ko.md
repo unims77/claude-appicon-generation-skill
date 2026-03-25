@@ -50,6 +50,26 @@ playwright install chromium
 /_icon-package path/to/icon_1024.png
 ```
 
+### 출력 결과
+
+생성된 모든 파일은 `output/{timestamp}/` 폴더에 저장됩니다:
+
+```
+output/20260325_143052/
+├── candidates/          # SVG & PNG 아이콘 후보
+│   ├── *.svg
+│   └── *.png
+├── preview.html         # 브라우저에서 열어 모든 후보 비교
+└── package/             # 5플랫폼 패키징된 아이콘 (확정 후)
+    ├── windows/
+    ├── macos/
+    ├── android/
+    ├── ios/
+    └── web/
+```
+
+아이콘 생성 후, 브라우저에서 **`preview.html`**을 열어 모든 후보를 나란히 비교한 뒤 원하는 아이콘을 선택하여 패키징하세요.
+
 ### Python API
 
 ```python

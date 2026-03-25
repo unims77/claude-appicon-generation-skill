@@ -50,6 +50,26 @@ playwright install chromium
 /_icon-package path/to/icon_1024.png
 ```
 
+### Output
+
+All generated files are saved to the `output/{timestamp}/` folder:
+
+```
+output/20260325_143052/
+├── candidates/          # SVG & PNG icon candidates
+│   ├── *.svg
+│   └── *.png
+├── preview.html         # Open in browser to compare all candidates
+└── package/             # 5-platform packaged icons (after confirmation)
+    ├── windows/
+    ├── macos/
+    ├── android/
+    ├── ios/
+    └── web/
+```
+
+After icon generation, open **`preview.html`** in your browser to compare all candidates side-by-side, then select your preferred icon for packaging.
+
 ### With Python API
 
 ```python
